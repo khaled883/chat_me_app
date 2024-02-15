@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:js_interop';
+
 import 'package:chat_me/screens/chat_screen.dart';
 import 'package:chat_me/widgets/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -122,7 +124,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       }
                     } catch (e) {
                     print(e);
-                    showErrorMessage(context, 'Invalid user name or password');
+                    showErrorMessage(context, '$e');
                     setState(() {
                       showSpinner=false;
                     });

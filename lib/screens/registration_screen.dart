@@ -125,7 +125,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     
                  } catch (e) {
                    print(e);
-                   showErrorMessage(context, 'Invalid user name or password');
+                   showErrorMessage(context, '$e');
                    setState(() {
                      showSpinner=false;
                    });

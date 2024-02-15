@@ -20,6 +20,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   late String password;
   bool showSpinner= false;
   final _auth = FirebaseAuth.instance;
+  void showErrorMessage(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+    ),
+  );
+}
   // these are the variables to get and store the values from text fields
   // and they are late because they are not initialized yet
   @override
@@ -118,6 +125,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     
                  } catch (e) {
                    print(e);
+                   showErrorMessage(context, 'Invalid user name or password');
                    setState(() {
                      showSpinner=false;
                    });

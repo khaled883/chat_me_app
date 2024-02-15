@@ -21,6 +21,13 @@ class _SignInScreenState extends State<SignInScreen> {
   late String email;
   late String password;
   bool showSpinner=false;
+  void showErrorMessage(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+    ),
+  );
+}
   
   @override
   Widget build(BuildContext context) {
@@ -115,6 +122,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       }
                     } catch (e) {
                     print(e);
+                    showErrorMessage(context, 'Invalid user name or password');
                     setState(() {
                       showSpinner=false;
                     });
